@@ -1,6 +1,7 @@
 package com.github.hackerwin7.jd.lib.executors;
 
 import com.jd.bdp.monitors.commons.util.CheckpointUtil;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Created by IntelliJ IDEA.
@@ -48,11 +49,11 @@ import com.jd.bdp.monitors.commons.util.CheckpointUtil;
         switch (op) {
             case "read":
                 String value = read(jobId);
-                System.out.println("read checkpoint : jobId = " + jobId + ", cp = " + value);
+                System.out.println("============== OK!!! read checkpoint : jobId = " + jobId + ", cp = " + value);
                 break;
             case "write":
                 write(jobId, this.value);
-                System.out.println("write checkpoint : jobId = " + jobId + ", cp = " + this.value);
+                System.out.println("============== OK!!! write checkpoint : jobId = " + jobId + ", cp = " + this.value);
                 break;
         }
     }
@@ -75,5 +76,15 @@ import com.jd.bdp.monitors.commons.util.CheckpointUtil;
      */
     private void write(String jobId, String value) throws Exception {
         cp.writeCp(jobId, value);
+        Thread.sleep(5000);
+        int cnt = 0;
+        while (!StringUtils.equals(value, read(jobId))) {
+            Thread.sleep(3000);
+            cnt++;
+            if(cnt >= 2) {
+                cp.writeCp(jobId, value);
+                cnt = 0;
+            }
+        }
     }
 }

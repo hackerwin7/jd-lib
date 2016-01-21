@@ -19,6 +19,11 @@
             <version>3.4</version>
         </dependency>
         <dependency>
+            <groupId>com.github.hackerwin7</groupId>
+            <artifactId>jlib-utils</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
             <groupId>com.jd.bdp</groupId>
             <artifactId>magpie-monitor-commons</artifactId>
             <version>0.0.5-SNAPSHOT</version>
