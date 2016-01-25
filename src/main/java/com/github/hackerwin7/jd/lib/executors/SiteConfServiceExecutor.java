@@ -1,5 +1,7 @@
 package com.github.hackerwin7.jd.lib.executors;
 
+import com.github.hackerwin7.jd.lib.utils.SiteConfService;
+
 /**
  * Created by IntelliJ IDEA.
  * User: hackerwin7
@@ -20,7 +22,23 @@ public class SiteConfServiceExecutor {
     public static final String TIME_PARAMETER = "time";
     public static final String DATA_PARAMETER = "data";
 
+    /**
+     *
+     * @param args, a string : 'jobId' 'value' 'op'
+     * @throws Exception
+     */
     public static void main(String[] args) throws Exception {
-
+        String jobId = args[0];
+        String value = args[1];
+        String op = args[2];
+        SiteConfService scs = new SiteConfService();
+        switch (op) {
+            case "read":
+                System.out.println(scs.read(jobId));
+                break;
+            case "write":
+                System.out.println(scs.write(jobId, value));
+                break;
+        }
     }
 }

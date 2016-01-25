@@ -1,8 +1,11 @@
 package com.github.hackerwin7.jd.lib.utils;
 
 import com.github.hackerwin7.jlib.utils.drivers.url.HttpClient;
+import net.sf.json.JSONObject;
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.log4j.Logger;
 
+import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,8 +26,8 @@ public class SiteConfService {
     public static final String APPID_DEFAULT = "bdp.jd.com";
     public static final String TOKEN_DEFAULT = "RQLMPXULF3EG23CPZL3U257B7Y";
     public static final String SITE_URL_WRITE = "http://atom.bdp.jd.local/api/site/save";
-    public static final String SITE_URL_READ = "http://atom.bdp.jd.local/api/site/getOrigin";
-    public static final String APPID_PARAMETER = "appid";
+    public static final String SITE_URL_READ = "http://atom.bdp.jd.local/api/site/get";
+    public static final String APPID_PARAMETER = "appId";
     public static final String TOKEN_PARAMETER = "token";
     public static final String TIME_PARAMETER = "time";
     public static final String DATA_PARAMETER = "data";
@@ -46,7 +49,8 @@ public class SiteConfService {
      * @param value
      * @throws Exception
      */
-    public void write(String key, String value) throws Exception {
+    public String write(String key, String value) throws Exception {
+        value = StringEscapeUtils.escapeJson(value);
         paras.put(TIME_PARAMETER, String.valueOf(System.currentTimeMillis()));
         /* build value format */
         String data = "{" +
@@ -57,7 +61,7 @@ public class SiteConfService {
                 "\"erp\":\"fff\"" +
                 "}";
         paras.put(DATA_PARAMETER, data);
-        client.post(SITE_URL_WRITE, paras);
+        return client.post(SITE_URL_WRITE, paras);
     }
 
     /**
@@ -74,6 +78,10 @@ public class SiteConfService {
                 "\"erp\":\"fff\"" +
                 "}";
         paras.put(DATA_PARAMETER, data);
-        return client.post(SITE_URL_WRITE, paras);
+        String ret = client.post(SITE_URL_READ, paras);
+        logger.debug(ret);
+        String value = JSONObject.fromObject(ret).getString("obj");
+        value = StringEscapeUtils.unescapeJson(value);
+        return value;
     }
 }
