@@ -57,12 +57,15 @@ public class MigrateConf2HBaseConf {
     private String htableName = "jdorders";
     private int jobIndex = 0;
     private String zkConn = "172.17.36.54,172.17.36.55,172.17.36.56";
+    private String tableName = "test";
     //private String zkConn = "172.19.186.89,172.19.186.90,172.19.186.91,172.19.186.93,172.19.186.93";
 
     public static void main(String[] args) throws Exception {
         MigrateConf2HBaseConf mchc = new MigrateConf2HBaseConf();
         if(!StringUtils.isBlank(args[0]))
             mchc.htableName = args[0];
+        if(!StringUtils.isBlank(args[1]))
+            mchc.tableName = args[1];
         mchc.start();
     }
 
@@ -138,7 +141,7 @@ public class MigrateConf2HBaseConf {
 
             //custom put
             jmeta.put("primarykey", "uid");
-            jmeta.put("tablename", "orders_test");
+            jmeta.put("tablename", tableName);
         }
         return JSONObject.fromObject(parserConf);
     }

@@ -79,7 +79,6 @@ public class SiteConfService {
                 "}";
         paras.put(DATA_PARAMETER, data);
         String ret = client.post(SITE_URL_READ, paras);
-        logger.debug(ret);
         String value = JSONObject.fromObject(ret).getString("obj");
         value = StringEscapeUtils.unescapeJson(value);
         return value;
