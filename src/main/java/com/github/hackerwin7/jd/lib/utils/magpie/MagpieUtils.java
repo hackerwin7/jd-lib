@@ -1,6 +1,7 @@
 package com.github.hackerwin7.jd.lib.utils.magpie;
 
 import net.sf.json.JSONObject;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 import java.util.Map;
@@ -32,5 +33,18 @@ public class MagpieUtils {
         return MagpieConfScanner.scanMagpieTrackerConf();
     }
 
+    /**
+     * tracker jobId convert to parser jobId
+     * @param tid
+     * @return parser jobId
+     */
+    public static String tracker2ParserJobid(String tid) {
+        if(StringUtils.startsWith(tid, "2002")) {
+            return StringUtils.replaceOnce(tid, "2002", "2102");
+        } else {
+            int tidNum = Integer.parseInt(tid);
+            return String.valueOf(tidNum + 1);
+        }
+    }
 
 }
