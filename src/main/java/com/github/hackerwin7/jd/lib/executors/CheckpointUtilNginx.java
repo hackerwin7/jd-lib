@@ -20,6 +20,14 @@ import org.apache.commons.lang3.StringUtils;
     /* driver */
     private CheckpointUtil cp = new CheckpointUtil();
 
+
+    /**
+     * constructor
+     */
+    public CheckpointUtilNginx() {
+    }
+
+
     /**
      * constructor
      * @param jobId
@@ -64,7 +72,7 @@ import org.apache.commons.lang3.StringUtils;
      * @return cp value
      * @throws Exception
      */
-    private String read(String jobId) throws Exception {
+    public String read(String jobId) throws Exception {
         return cp.readCheckpoint(jobId, CheckpointUtil.CURRENT_CHECKPOINT);
     }
 
@@ -74,7 +82,7 @@ import org.apache.commons.lang3.StringUtils;
      * @param value
      * @throws Exception
      */
-    private void write(String jobId, String value) throws Exception {
+    public void write(String jobId, String value) throws Exception {
         cp.writeCp(jobId, value);
         Thread.sleep(5000);
         int cnt = 0;

@@ -86,7 +86,7 @@ public class MigrateConf2HBaseConf {
             JSONObject tConf = loadConf(job);
             JSONObject pConf = loadConf(getParserJobId(job));
             JSONObject conf = switchConf(tConf, pConf);
-            writeConf(job, conf);
+            writeConf(job + "_test", conf);
             jobIndex++;
         }
     }
@@ -138,10 +138,6 @@ public class MigrateConf2HBaseConf {
                 htable = "no_default";
             }
             jmeta.put(HTABLE_KEY, htable);
-
-            //custom put
-            jmeta.put("primarykey", "uid");
-            jmeta.put("tablename", tableName);
         }
         return JSONObject.fromObject(parserConf);
     }

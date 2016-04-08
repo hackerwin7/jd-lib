@@ -15,7 +15,7 @@ import java.util.List;
  * User: hackerwin7
  * Date: 2016/01/21
  * Time: 2:49 PM
- * Desc: migrate config from kafka to hbase
+ * Desc: migrate config from kafka to kafka
  */
 public class MigrateOnlineConf2OfflineConf {
 

@@ -5,7 +5,6 @@ import net.sf.json.JSONObject;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.log4j.Logger;
 
-import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,7 +21,6 @@ public class SiteConfService {
     private Logger logger = Logger.getLogger(SiteConfService.class);
 
     /* constants */
-    public static final String ENCODE_DEFAULT = "UTF-8";
     public static final String APPID_DEFAULT = "bdp.jd.com";
     public static final String TOKEN_DEFAULT = "RQLMPXULF3EG23CPZL3U257B7Y";
     public static final String SITE_URL_WRITE = "http://atom.bdp.jd.local/api/site/save";
