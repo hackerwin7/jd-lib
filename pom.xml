@@ -41,7 +41,7 @@
 
     <groupId>com.github.hackerwin7</groupId>
     <artifactId>jd-lib</artifactId>
-    <version>0.1.3</version>
+    <version>0.1.3.1</version>
 
     <dependencies>
         <dependency>
@@ -73,6 +73,11 @@
             <groupId>com.jd.bdp</groupId>
             <artifactId>magpie-monitor-constants</artifactId>
             <version>0.0.5-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jd.bdp.jdw</groupId>
+            <artifactId>serializer_2.10</artifactId>
+            <version>0.2-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
@@ -160,7 +165,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <skip>false</skip>
+                    <skip>true</skip>
                 </configuration>
             </plugin>
         </plugins>
