@@ -79,6 +79,11 @@
             <artifactId>serializer_2.10</artifactId>
             <version>0.2-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.jd</groupId>
+            <artifactId>jsf</artifactId>
+            <version>1.5.1</version>
+        </dependency>
     </dependencies>
 
     <build>
