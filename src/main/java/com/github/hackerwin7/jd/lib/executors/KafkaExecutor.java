@@ -8,7 +8,6 @@ import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.TopicPartition;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Properties;
 
