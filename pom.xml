@@ -55,36 +55,6 @@
             <version>3.4</version>
         </dependency>
         <dependency>
-            <groupId>com.github.hackerwin7</groupId>
-            <artifactId>jlib-utils</artifactId>
-            <version>0.1.1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.jd.bdp</groupId>
-            <artifactId>magpie-monitor-commons</artifactId>
-            <version>0.0.5-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.jd.bdp</groupId>
-            <artifactId>magpie-framework</artifactId>
-            <version>1.2.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.jd.bdp</groupId>
-            <artifactId>magpie-monitor-constants</artifactId>
-            <version>0.0.5-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.jd.bdp.jdw</groupId>
-            <artifactId>serializer_2.10</artifactId>
-            <version>0.2-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.jd</groupId>
-            <artifactId>jsf</artifactId>
-            <version>1.5.1</version>
-        </dependency>
-        <dependency>
             <groupId>org.apache.kafka</groupId>
             <artifactId>kafka-clients</artifactId>
             <version>0.11.0.1</version>
